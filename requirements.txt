@@ -1,5 +1,3 @@
 '/opt/render/project/src/.venv/bin/python -m pip install --upgrade pip
-pip install streamlit
-pip install YouTube
-pip install pytube
-pip install time
+streamlit==0.88.0
+pytube==11.0.1
