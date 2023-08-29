@@ -3,11 +3,11 @@ from pytube import YouTube
 import time
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="Mokhlese Mehdi's Youtube Video Downloader", page_icon="🎥")
+st.set_page_config(page_title="YTDL by Homan", page_icon="🎥")
 
 def main():
-    st.title("Mokhlese Mehdi's Youtube Video Downloader")
-    st.markdown("Download YouTube videos easily! 🎬 by HOMAN 🧑‍💻")
+    st.title("🐴🐏 Khare Mehdi's Youtube Video Downloader")
+    st.markdown("Download YouTube videos made easily! 🎬 by HOMAN 🧑‍💻")
     st.write("")
 
     # Get the video URL from user input
