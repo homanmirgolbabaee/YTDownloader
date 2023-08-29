@@ -1,5 +1,5 @@
-pip install --upgrade pip
-streamlit
-YouTube
-pytube
-time
+'/opt/render/project/src/.venv/bin/python -m pip install --upgrade pip
+pip install streamlit
+pip install YouTube
+pip install pytube
+pip install time
