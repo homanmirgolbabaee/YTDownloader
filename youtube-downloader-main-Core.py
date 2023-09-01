@@ -2,6 +2,7 @@ import streamlit as st
 from pytube import YouTube
 import os
 import re
+import pytube.exceptions
 
 directory = 'downloads/'
 if not os.path.exists(directory):
@@ -65,5 +66,9 @@ if url:
                 ds.download(filename=file_name, output_path="downloads/")
                 st.success('Download Complete ✅')
                 st.balloons()
-            except:
-                st.error('Error: Save with a different name! 🚨')
+            except pytube.exceptions.VideoUnavailable as e:
+                st.error(f'Error: Video is unavailable - {e}')
+            except pytube.exceptions.VideoPrivate as e:
+                st.error(f'Error: Video is private - {e}')
+            except Exception as e:
+                st.error(f'An error occurred - {e}')
