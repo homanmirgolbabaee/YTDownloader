@@ -7,7 +7,7 @@ directory = 'downloads/'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-st.set_page_config(page_title="YTD", page_icon="🚀", layout="wide")
+st.set_page_config(page_title="YTD", layout="wide")
 
 @st.cache(allow_output_mutation=True)
 def get_info(url):
@@ -34,8 +34,8 @@ def get_info(url):
     details["format"] = vformat
     return details
 
-st.title("خر آقا مهدی ( نسخه یوتوب) 🚀")
-url = st.text_input("Paste URL here 👇", placeholder='https://www.youtube.com/')
+st.title("youtube downloader")
+url = st.text_input("Paste URL here ")
 if url:
     v_info = get_info(url)
     col1, col2 = st.columns([1, 1.5])
@@ -50,7 +50,7 @@ if url:
         st.write(f"**Resolution:** {v_info['resolutions'][id]}")
         st.write(f"**Frame Rate:** {v_info['fps'][id]}")
         st.write(f"**Format:** {v_info['format'][id]}")
-        file_name = st.text_input('Save as', placeholder=v_info['title'])
+        file_name = st.text_input('Save as')
         if file_name:
             if file_name != v_info['title']:
                 file_name += ".mp4"
