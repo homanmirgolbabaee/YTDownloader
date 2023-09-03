@@ -1,74 +1,36 @@
+import tldextract
+from pytube import YouTube, exceptions as pytube_exceptions
 import streamlit as st
-from pytube import YouTube
-import os
-import re
-import pytube.exceptions
 
-directory = 'downloads/'
-if not os.path.exists(directory):
-    os.makedirs(directory)
+st.title("Youtube Video Downloader")
+st.subheader("Enter the URL:")
+url = st.text_input(label='URL')
 
-st.set_page_config(page_title="YTD", layout="wide")
-
-@st.cache(allow_output_mutation=True)
-def get_info(url):
+try:
     yt = YouTube(url)
-    streams = yt.streams.filter(progressive=True, type='video')
-    details = {}
-    details["image"] = yt.thumbnail_url
-    details["streams"] = streams
-    details["title"] = yt.title
-    details["length"] = yt.length
-    itag, resolutions, vformat, frate = ([] for i in range(4))
-    for i in streams:
-        res = re.search(r'(\d+)p', str(i))
-        typ = re.search(r'video/(\w+)', str(i))
-        fps = re.search(r'(\d+)fps', str(i))
-        tag = re.search(r'(\d+)', str(i))
-        itag.append(str(i)[tag.start():tag.end()])
-        resolutions.append(str(i)[res.start():res.end()])
-        vformat.append(str(i)[typ.start():typ.end()])
-        frate.append(str(i)[fps.start():fps.end()])
-    details["resolutions"] = resolutions
-    details["itag"] = itag
-    details["fps"] = frate
-    details["format"] = vformat
-    return details
+except pytube_exceptions.RegexMatchError:
+    st.subheader("Invalid YouTube URL. Please enter a valid URL.")
 
-st.title("youtube downloader")
-url = st.text_input("Paste URL here ")
-if url:
-    v_info = get_info(url)
-    col1, col2 = st.columns([1, 1.5])
-    with col1:
-        st.image(v_info["image"])
-    with col2:
-        st.subheader("Video Details ⚙️")
-        res_inp = st.selectbox('Select Resolution', v_info["resolutions"])
-        id = v_info["resolutions"].index(res_inp)
-        st.write(f"**Title:** {v_info['title']}")
-        st.write(f"**Length:** {v_info['length']} sec")
-        st.write(f"**Resolution:** {v_info['resolutions'][id]}")
-        st.write(f"**Frame Rate:** {v_info['fps'][id]}")
-        st.write(f"**Format:** {v_info['format'][id]}")
-        file_name = st.text_input('Save as')
-        if file_name:
-            if file_name != v_info['title']:
-                file_name += ".mp4"
-        else:
-            file_name = v_info['title'] + ".mp4"
-
-    button = st.button("Download ⚡️")
-    if button:
-        with st.spinner('Downloading...'):
-            try:
-                ds = v_info["streams"].get_by_itag(v_info['itag'][id])
-                ds.download(filename=file_name, output_path="downloads/")
-                st.success('Download Complete ✅')
-                st.balloons()
-            except pytube.exceptions.VideoUnavailable as e:
-                st.error(f'Error: Video is unavailable - {e}')
-            except pytube.exceptions.VideoPrivate as e:
-                st.error(f'Error: Video is private - {e}')
-            except Exception as e:
-                st.error(f'An error occurred - {e}')
+if url != '':
+    st.image(yt.thumbnail_url, width=300)
+    st.subheader('''
+    {}
+    ## Length: {} seconds
+    ## Rating: {} 
+    '''.format(yt.title, yt.length, yt.rating))
+    video = yt.streams
+    if len(video) > 0:
+        downloaded, download_audio = False, False
+        download_video = st.button("Download Video")
+        if yt.streams.filter(only_audio=True):
+            download_audio = st.button("Download Audio Only")
+        if download_video:
+            video.get_lowest_resolution().download()
+            downloaded = True
+        if download_audio:
+            video.filter(only_audio=True).first().download()
+            downloaded = True
+        if downloaded:
+            st.subheader("Download Complete")
+    else:
+        st.subheader("Sorry, this video can not be downloaded")
