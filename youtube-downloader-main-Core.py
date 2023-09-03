@@ -1,4 +1,4 @@
-import tldextract
+
 from pytube import YouTube, exceptions as pytube_exceptions
 import streamlit as st
 
