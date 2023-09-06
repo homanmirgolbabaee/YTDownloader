@@ -28,29 +28,29 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
 
 ## 🚀 Installation
 
-1. **Clone the repository**
+1. **Clone the repository & Navigate to Directory**
 
     ```bash
     git clone https://github.com/your-username/32Bit-YTDownloader.git
-    ```
-
-2. **Navigate into the directory**
-
-    ```bash
     cd 32Bit-YTDownloader
     ```
-
 3. **Install dependencies**
 
     ```bash
     pip install streamlit pytube
+    pip install -r requirements.txt
     ```
 
 ## 👟 Usage
-
 ### For 64-bit Systems
-
 Run the Streamlit app with the following command:
 
-```bash
-streamlit run streamlit_app.py
+    ```bash
+    streamlit run streamlitapp.py
+    ```
+### For 32-bit Systems
+Run the Python app (Ttinker as GUI) with the following command:
+    ```bash
+    python 32bitYT.py
+    ```
+
