@@ -44,11 +44,11 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
 ## 👟 Usage
 ### For 64-bit Systems
 Run the Streamlit app with the following command:
-
-    ```bash
+    ``` bash
     streamlit run streamlitapp.py
     ```
-### For 32-bit Systems
+
+#### For 32-bit Systems
 Run the Python app (Ttinker as GUI) with the following command:
     ```bash
     python 32bitYT.py
