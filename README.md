@@ -13,19 +13,20 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
 
 ## 📚 Table of Contents
 
-- [🔍 Requirements](#requirements)
-- [🚀 Installation](#installation)
-- [👟 Usage](#usage)
-- [🤝 Contribution](#contribution)
-- [📄 License](#license)
-- [🙌 Credits](#credits)
+- [🔍 Requirements](#-requirements)
+- [🚀 Installation](#-installation)
+- [👟 Usage](#-usage)
+- [🤝 Contribution](#-contribution)
+- [📄 License](#-license)
+- [🙌 Credits](#-credits)
+
 
 ## 🔍 Requirements
 
 - Python 3.x
 - Streamlit
 - Pytube
-
+- Ttinker 
 ## 🚀 Installation
 
 1. **Clone the repository & Navigate to Directory**
