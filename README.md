@@ -4,29 +4,24 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
 
 ![App Screenshot](./screenshot.png)
 
-## 🌟 Features
-
-- 🎥 Download YouTube videos.
-- 🎵 Option to download just audio.
-- 💨 Quick and responsive.
-- 🖥️ Support for both modern and older systems.
-
 ## 📚 Table of Contents
 
-- [🔍 Requirements](#-requirements)
-- [🚀 Installation](#-installation)
-- [👟 Usage](#-usage)
-- [🤝 Contribution](#-contribution)
-- [📄 License](#-license)
-- [🙌 Credits](#-credits)
+- [🔍 Requirements](#requirements)
+- [🚀 Installation](#installation)
+- [👟 Usage](#usage)
+- [🤝 Contribution](#contribution)
+- [📄 License](#license)
+- [🙌 Credits](#credits)
 
-
+<a name="requirements"></a>
 ## 🔍 Requirements
 
 - Python 3.x
 - Streamlit
 - Pytube
 - Ttinker 
+
+<a name="installation"></a>
 ## 🚀 Installation
 
 1. **Clone the repository & Navigate to Directory**
@@ -35,13 +30,15 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
     git clone https://github.com/your-username/32Bit-YTDownloader.git
     cd 32Bit-YTDownloader
     ```
-3. **Install dependencies**
+
+2. **Install dependencies**
 
     ```bash
     pip install streamlit pytube
     pip install -r requirements.txt
     ```
 
+<a name="usage"></a>
 ## 👟 Usage
 
 ### 🌐 For 64-bit & 32-bit Systems
@@ -50,8 +47,3 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
 
 ```bash
 streamlit run streamlitapp.py
-```
-(32-Bit)To run the Python app (Ttinker as GUI), execute the following command:
-```bash
-python 32bitYT.py
-```
