@@ -1,4 +1,4 @@
-# 🎬 32Bit-YTDownloader & Streamlit App
+# 🎬 32Bit&64Bit YoutubeDownloader & Streamlit App
 
 Easily download YouTube videos or just audio, directly to your computer! Choose between the **Streamlit App** for modern, 64-bit systems, or **32Bit-YTDownloader** for older 32-bit Windows 7 systems.
 
@@ -47,3 +47,7 @@ Easily download YouTube videos or just audio, directly to your computer! Choose 
 
 ```bash
 streamlit run streamlitapp.py
+```
+(32-Bit)To run the Python app ( Ttinker as GUI) execute the following command:
+```bash
+python 32bitYT.py
